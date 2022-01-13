@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import Header from '../Header/Header.jsx';
+import GroceryList from '../GroceryList/GroceryList';
 import './App.css';
 
 //importing GroceryFrom from component file
@@ -50,6 +51,7 @@ function App() {
 			<Header />
 			<main>
 				<GroceryForm addNewGrocery={addNewGrocery} />
+                <GroceryList groceryList={groceryList} />
 			</main>
 		</div>
 	);
