@@ -7,23 +7,25 @@ import './App.css';
 import GroceryForm from '../GroceryForm/GroceryForm'
 
 
-const addNewGrocery = (grocery) => {
-     axios({
-         method: '/POST',
-         url: '/list',
-         data: grocery
-     })
-     .then((response) => {
-         console.log('response is:', response);
-         getGrocery();
-     })
-     .catch((error) => {
-         console.error('Error on POST app.jsx', error);
-     });
-}
+
 
 
 function App() {
+    const addNewGrocery = (grocery) => {
+        axios({
+            method: '/POST',
+            url: '/list',
+            data: grocery
+        })
+        .then((response) => {
+            console.log('response is:', response);
+            getGrocery();
+        })
+        .catch((error) => {
+            console.error('Error on POST app.jsx', error);
+        });
+   }
+
     return (
         <div className="App">
             <Header />

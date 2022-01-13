@@ -29,17 +29,20 @@ function GroceryForm({addNewGrocery}){
             <input 
             onChange = { (event) => setNewGrocery(event.target.value)}
             value = {newGrocery}
+            placeholder = 'Item'
             />
-
+            <br></br>
             <label>Quantity:</label>
             <input
             onChange = { (event) => setNewQuantity(event.target.value)}
             value = {newQuantity}
+            placeholder = 'Quantity'
             />
-
+            <br></br>
             <label>Units:</label>
             <input 
             onChange = { (event) => setNewUnit(event.target.value)}
+            placeholder = 'Units'
             />
 
             <button type = "submit">Save</button>
