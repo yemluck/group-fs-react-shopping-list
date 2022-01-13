@@ -82,12 +82,6 @@ function App() {
         });
     };
 
-	// Buy function -- PUT and mark as purchased
-    function buyItem() {
-        console.log('in buyItem');
-
-        //move function into app.jsx like ClearReset
-    }
 	// Call getGroceries function using useEffect so it only runs once on component load
 	useEffect(() => {
 		getGroceries();

@@ -13,11 +13,11 @@ function GroceryListItem({item}) {
             }
         })
         .then((res) => {
-            console.log('but PUT success');
+            console.log('buy PUT success');
             getGroceries();
         })
         .catch((err) => {
-            console.error('but PUT failed', err);
+            console.error('buy PUT failed', err);
         })
         //move function into app.jsx like ClearReset
     }
@@ -32,8 +32,12 @@ function GroceryListItem({item}) {
         <div key={item.id}>
             <p>{item.name}</p>
             <p>{item.quantity} {item.unit}</p>
-            <button onClick={buyItem}>Buy</button>
-            <button onClick={removeItem}>Remove</button>
+            { item.purchased ? 'Purchased' :
+                <>
+                    <button onClick={buyItem}>Buy</button>
+                    <button onClick={removeItem}>Remove</button>
+                </>
+            }       
         </div>
     )
 }
