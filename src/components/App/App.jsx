@@ -15,9 +15,14 @@ const addNewGrocery = (grocery) => {
      })
      .then((response) => {
          console.log('response is:', response);
-         
+         getGrocery();
      })
+     .catch((error) => {
+         console.error('Error on POST app.jsx', error);
+     });
 }
+
+
 function App() {
     return (
         <div className="App">
