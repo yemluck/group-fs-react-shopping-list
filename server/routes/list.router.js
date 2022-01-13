@@ -7,7 +7,7 @@ const pool = require('../modules/pool.js');
 // GET endpoint
 router.get('/', (req, res) => {
     // Write SQL query
-    const sqlText = `SELECT * FROM groceries ORDER BY purchased, name DESC;`;
+    const sqlText = `SELECT * FROM groceries ORDER BY purchased, name ASC`;
     pool.query(sqlText)
         // Send data to client after it's retrieved from database
         .then( result => {
@@ -45,8 +45,8 @@ router.post('/', (req, res) => {
 });
 
 //PUT endpoint
+//update all
 router.put('/', (req, res) => {
-    
     let queryText = `
         UPDATE groceries SET purchased = false 
     `;
@@ -60,6 +60,27 @@ router.put('/', (req, res) => {
             res.sendStatus(500);
         })
 });
+
+//update 1
+router.put('/:id', (req, res) => {
+    
+    let queryText = `
+        UPDATE groceries SET purchased = true WHERE id = $1
+    `;
+
+    let queryParams = [
+        req.params.id
+    ];
+
+    pool.query(queryText, queryParams)
+        .then((res) => {
+            console.log('Changed purchased to true');
+        })
+        .catch((err) => {
+            console.log('Error in changing purchased to true', err);
+            res.sendStatus(500);
+        })
+})
 
 //DELETE endpoint
 router.delete('/', (req, res) => {
