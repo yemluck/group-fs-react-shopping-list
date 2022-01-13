@@ -1,5 +1,5 @@
 import axios from 'axios';
-function GroceryListItem({item}) {
+function GroceryListItem({item, getGroceries}) {
     
     // Buy function -- PUT and mark as purchased
     function buyItem() {
@@ -13,11 +13,11 @@ function GroceryListItem({item}) {
             }
         })
         .then((res) => {
-            console.log('but PUT success');
+            console.log('buy PUT success');
             getGroceries();
         })
         .catch((err) => {
-            console.error('but PUT failed', err);
+            console.error('buy PUT failed', err);
         })
         //move function into app.jsx like ClearReset
     }

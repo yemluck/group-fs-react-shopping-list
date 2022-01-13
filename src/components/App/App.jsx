@@ -45,50 +45,9 @@ function App() {
 			});
 	};
 
-	const reset = () => {
-        console.log('reset has been clicked');
 
-        axios({
-            method: 'PUT',
-            url: '/list',
-            data: {
-                purchased: false
-            }
+	
 
-        })
-        .then(() => {
-            console.log('PUT success');
-            //calling get again to get the new data
-            getGroceries();
-        })
-        .catch((err) => {
-            console.error('Error on PUT in ClearReset', err);
-        });
-    };
-
-	const clear = () => {
-        console.log('clear has been clicked');
-
-        axios({
-            method: 'DELETE',
-            url: '/list'
-        })
-        .then((response) => {
-            console.log('DELETE success');
-            //calling get again to update the DOM
-        })
-        .catch((err) => {
-            console.error('DELETE failed in ClearReset', err);
-        });
-    };
-
-	// Buy function -- PUT and mark as purchased
-    function buyItem() {
-        console.log('in buyItem');
-
-        //move function into app.jsx like ClearReset
-    }
-	// Call getGroceries function using useEffect so it only runs once on component load
 	useEffect(() => {
 		getGroceries();
 	}, []);
@@ -99,8 +58,8 @@ function App() {
 			<main>
 				<GroceryForm addNewGrocery={addNewGrocery} />
         		<h2>Shopping List</h2>
-       		 	<ClearReset clear = {clear} reset = {reset}/>
-        		<GroceryList groceryList={groceryList} />
+       		 	<ClearReset getGroceries = {getGroceries}/>
+        		<GroceryList groceryList={groceryList} getGroceries = {getGroceries}/>
 			</main>
 		</div>
 	);
