@@ -20,7 +20,7 @@ function GroceryForm({addNewGrocery}){
 
         setNewGrocery('');
         setNewQuantity('');
-        setNewUnity('');
+        setNewUnit('');
     }
     return(
         <form onSubmit = {handleSubmit}>
@@ -42,6 +42,7 @@ function GroceryForm({addNewGrocery}){
             <label>Units:</label>
             <input 
             onChange = { (event) => setNewUnit(event.target.value)}
+            value = {newUnit}
             placeholder = 'Units'
             />
 
