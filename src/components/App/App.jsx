@@ -6,6 +6,18 @@ import './App.css';
 //importing GroceryFrom from component file
 import GroceryForm from '../GroceryForm/GroceryForm'
 
+
+const addNewGrocery = (grocery) => {
+     axios({
+         method: '/POST',
+         url: '/list',
+         data: grocery
+     })
+     .then((response) => {
+         console.log('response is:', response);
+         
+     })
+}
 function App() {
     return (
         <div className="App">
