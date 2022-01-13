@@ -42,6 +42,40 @@ router.post('/', (req, res) => {
         
     })
 
-})
+});
+
+//PUT endpoint
+router.put('/', (req, res) => {
+    
+    let queryText = `
+        UPDATE groceries SET purchased = false 
+    `;
+
+    pool.query(queryText)
+        .then((res) => {
+            console.log('Changed purchased to false');
+        })
+        .catch((error) => {
+            console.error('Error updating the DB', error);
+            res.sendStatus(500);
+        })
+});
+
+//DELETE endpoint
+router.delete('/', (req, res) => {
+    let queryText = `
+        DELETE FROM groceries;
+    `;
+
+    pool.query(queryText)
+        .then((res) => {
+            console.log('DELETE success');
+            res.sendStatus(201);
+        })
+        .catch((err) => {
+            console.error('DELETE endpoint failed', err);
+            res.sendStatus(500);
+        })
+});
 
 module.exports = router;

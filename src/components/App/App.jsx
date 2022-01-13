@@ -7,6 +7,9 @@ import './App.css';
 //importing GroceryFrom from component file
 import GroceryForm from '../GroceryForm/GroceryForm';
 
+//importing Clear and Reset Buttons
+import ClearReset from '../ClearReset/ClearReset';
+
 function App() {
 	const [ groceryList, setGroceryList ] = useState([]);
 
@@ -40,6 +43,44 @@ function App() {
 				console.error('Error on POST app.jsx', error);
 			});
 	};
+
+	const reset = () => {
+        console.log('reset has been clicked');
+
+        axios({
+            method: 'PUT',
+            url: '/list',
+            data: {
+                purchased: false
+            }
+
+        })
+        .then(() => {
+            console.log('PUT success');
+            //calling get again to get the new data
+            getGroceries();
+        })
+        .catch((err) => {
+            console.error('Error on PUT in ClearReset', err);
+        });
+    };
+
+	const clear = () => {
+        console.log('clear has been clicked');
+
+        axios({
+            method: 'DELETE',
+            url: '/list'
+        })
+        .then((response) => {
+            console.log('DELETE success');
+            //calling get again to update the DOM
+        })
+        .catch((err) => {
+            console.error('DELETE failed in ClearReset', err);
+        });
+    };
+
 	// Call getGroceries function using useEffect so it only runs once on component load
 	useEffect(() => {
 		getGroceries();
@@ -50,6 +91,8 @@ function App() {
 			<Header />
 			<main>
 				<GroceryForm addNewGrocery={addNewGrocery} />
+                <h2>Shopping List</h2>
+                <ClearReset clear = {clear} reset = {reset}/>
 			</main>
 		</div>
 	);
