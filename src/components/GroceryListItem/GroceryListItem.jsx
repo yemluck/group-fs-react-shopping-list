@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 function GroceryListItem({item}) {
     
     // Buy function -- PUT and mark as purchased
@@ -8,6 +10,19 @@ function GroceryListItem({item}) {
     // Remove function -- DELETE
     function removeItem() {
         console.log('in removeItem');
+
+        axios({
+            method: 'DELETE',
+            url: `/list/${item.id}`
+        })
+        .then((res) => {
+
+        })
+        .catch((err) => {
+           console.log('DELETE failed', err);
+        })
+        
+        
     }
 
 
