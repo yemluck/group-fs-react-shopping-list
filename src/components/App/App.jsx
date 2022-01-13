@@ -82,6 +82,12 @@ function App() {
         });
     };
 
+	// Buy function -- PUT and mark as purchased
+    function buyItem() {
+        console.log('in buyItem');
+
+        //move function into app.jsx like ClearReset
+    }
 	// Call getGroceries function using useEffect so it only runs once on component load
 	useEffect(() => {
 		getGroceries();
@@ -92,9 +98,9 @@ function App() {
 			<Header />
 			<main>
 				<GroceryForm addNewGrocery={addNewGrocery} />
-        <h2>Shopping List</h2>
-        <ClearReset clear = {clear} reset = {reset}/>
-        <GroceryList groceryList={groceryList} />
+        		<h2>Shopping List</h2>
+       		 	<ClearReset clear = {clear} reset = {reset}/>
+        		<GroceryList groceryList={groceryList} />
 			</main>
 		</div>
 	);

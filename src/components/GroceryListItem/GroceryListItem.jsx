@@ -1,8 +1,25 @@
+import axios from 'axios';
 function GroceryListItem({item}) {
     
     // Buy function -- PUT and mark as purchased
     function buyItem() {
         console.log('in buyItem');
+
+        axios({
+            method: 'PUT',
+            url: `/list/${item.id}`,
+            data: {
+                purchased: true
+            }
+        })
+        .then((res) => {
+            console.log('but PUT success');
+            getGroceries();
+        })
+        .catch((err) => {
+            console.error('but PUT failed', err);
+        })
+        //move function into app.jsx like ClearReset
     }
 
     // Remove function -- DELETE
