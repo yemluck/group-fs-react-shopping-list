@@ -24,7 +24,7 @@ router.get('/', (req, res) => {
 // setup a POST route to add a new grocery to the database
 router.post('/', (req, res) => {
     if(req.body.name === " " || req.body.unit === " " || req.body.quantity === " " || Number(req.body.quantity) === NaN){
-        console.log('input failed test');
+        console.log('input failed test: check user input');
         return res.sendStatus(400)
     }
 
