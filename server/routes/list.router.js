@@ -98,4 +98,25 @@ router.delete('/', (req, res) => {
         })
 });
 
+//DELETE/:id endpoint
+router.delete('/:id', (req, res) => {
+    let queryText = `
+        DELETE FROM groceries
+        WHERE id = $1;
+    `;
+    let queryParams = [
+        req.params.id       //$1
+    ]
+    pool.query(queryText, queryParams)
+        .then((dbRes) => {
+            console.log('DELETE success');
+            res.sendStatus(204);
+        })
+        .catch((err) => {
+            console.error('DELETE endpoint failed', err);
+            res.sendStatus(500);
+        })
+}); // end function delete with id
+
+
 module.exports = router;
