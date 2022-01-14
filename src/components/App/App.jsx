@@ -98,6 +98,22 @@ function App() {
             console.error('buy PUT failed', err);
         })
 	}
+
+    const removeItem = ({item}) => {
+        axios({
+            method: 'DELETE',
+            url: `/list/${item.id}`,
+            data: item.id
+        })
+        .then( res => {
+            console.log(`${item.id} DELETE successful`);
+            getGroceries();
+        })
+        .catch( err => {
+            console.error('DELETE failed', err);
+        })
+    }
+
 	// Call getGroceries function using useEffect so it only runs once on component load
 	useEffect(() => {
 		getGroceries();
@@ -110,7 +126,7 @@ function App() {
 				<GroceryForm addNewGrocery={addNewGrocery} />
         		<h2>Shopping List</h2>
        		 	<ClearReset clear = {clear} reset = {reset}/>
-        		<GroceryList groceryList={groceryList} buy = {buy}/>
+        		<GroceryList groceryList={groceryList} buy = {buy} removeItem={removeItem}/>
 			</main>
 		</div>
 	);
