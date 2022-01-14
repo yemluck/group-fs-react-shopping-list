@@ -1,5 +1,5 @@
 import axios from 'axios';
-function GroceryListItem({item, buy, getGroceries}) {
+function GroceryListItem({item, buy, removeItem}) {
     
     // Buy function -- PUT and mark as purchased
     function buyItem() {
@@ -9,8 +9,9 @@ function GroceryListItem({item, buy, getGroceries}) {
     }
 
     // Remove function -- DELETE
-    function removeItem() {
+    function onRemoveItem() {
         console.log('in removeItem');
+        removeItem({item});
     }
 
 
@@ -21,7 +22,7 @@ function GroceryListItem({item, buy, getGroceries}) {
             { item.purchased ? 'Purchased' :
                 <>
                     <button onClick={buyItem}>Buy</button>
-                    <button onClick={removeItem}>Remove</button>
+                    <button onClick={onRemoveItem}>Remove</button>
                 </>
             }       
         </div>

@@ -52,8 +52,9 @@ router.put('/', (req, res) => {
     `;
 
     pool.query(queryText)
-        .then((res) => {
+        .then((response) => {
             console.log('Changed purchased to false');
+            res.sendStatus(200);
         })
         .catch((error) => {
             console.error('Error updating the DB', error);
@@ -73,8 +74,9 @@ router.put('/:id', (req, res) => {
     ];
 
     pool.query(queryText, queryParams)
-        .then((res) => {
+        .then((response) => {
             console.log('Changed purchased to true');
+            res.sendStatus(201)
         })
         .catch((err) => {
             console.log('Error in changing purchased to true', err);
@@ -89,8 +91,9 @@ router.delete('/', (req, res) => {
     `;
 
     pool.query(queryText)
-        .then((res) => {
+        .then((response) => {
             console.log('DELETE success');
+            res.sendStatus(200);
         })
         .catch((err) => {
             console.error('DELETE endpoint failed', err);
@@ -110,7 +113,7 @@ router.delete('/:id', (req, res) => {
     pool.query(queryText, queryParams)
         .then((dbRes) => {
             console.log('DELETE success');
-            res.sendStatus(204);
+            res.sendStatus(200);
         })
         .catch((err) => {
             console.error('DELETE endpoint failed', err);
