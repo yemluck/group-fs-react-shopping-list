@@ -1,24 +1,10 @@
 import axios from 'axios';
-function GroceryListItem({item}) {
+function GroceryListItem({item, buy, getGroceries}) {
     
     // Buy function -- PUT and mark as purchased
     function buyItem() {
-        console.log('in buyItem');
-
-        axios({
-            method: 'PUT',
-            url: `/list/${item.id}`,
-            data: {
-                purchased: true
-            }
-        })
-        .then((res) => {
-            console.log('buy PUT success');
-            getGroceries();
-        })
-        .catch((err) => {
-            console.error('buy PUT failed', err);
-        })
+        console.log('itemId is,', item.id);
+        buy({item});
         //move function into app.jsx like ClearReset
     }
 

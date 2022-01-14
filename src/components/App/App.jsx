@@ -82,6 +82,22 @@ function App() {
         });
     };
 
+	const buy = ({item}) => {
+		axios({
+            method: 'PUT',
+            url: `/list/${item.id}`,
+            data: {
+                purchased: true
+            }
+        })
+        .then((res) => {
+            console.log('buy PUT success');
+            getGroceries();
+        })
+        .catch((err) => {
+            console.error('buy PUT failed', err);
+        })
+	}
 	// Call getGroceries function using useEffect so it only runs once on component load
 	useEffect(() => {
 		getGroceries();
@@ -94,7 +110,7 @@ function App() {
 				<GroceryForm addNewGrocery={addNewGrocery} />
         		<h2>Shopping List</h2>
        		 	<ClearReset clear = {clear} reset = {reset}/>
-        		<GroceryList groceryList={groceryList} />
+        		<GroceryList groceryList={groceryList} buy = {buy}/>
 			</main>
 		</div>
 	);
