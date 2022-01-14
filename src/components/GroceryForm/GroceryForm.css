@@ -1,0 +1,35 @@
+form{
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.item{
+    font-size: 20px;
+}
+
+.inputItem{
+    margin-left: 2px;
+}
+
+.quantity{
+    font-size:20px;
+}
+
+.inputQuantity{
+    width: 50px;
+    margin-left: 2px;
+}
+
+.unit{
+    font-size: 20px;
+    margin-left: 5px;
+}
+
+.inputUnit{
+    margin-left: 2px;
+}
+
+.submit{
+    font-size: 20px;
+    margin-top: 5px;
+}
