@@ -1,6 +1,6 @@
 import GroceryListItem from '../GroceryListItem/GroceryListItem';
 
-function GroceryList({groceryList, buy, removeItem }) {
+function GroceryList({groceryList, buy, removeItem, getGroceries }) {
     return (
         <div>
         {

@@ -76,6 +76,7 @@ function App() {
         .then((response) => {
             console.log('DELETE success');
             //calling get again to update the DOM
+            getGroceries();
         })
         .catch((err) => {
             console.error('DELETE failed in ClearReset', err);
@@ -83,6 +84,7 @@ function App() {
     };
 
 	const buy = ({item}) => {
+        console.log('in buy in App.jsx')
 		axios({
             method: 'PUT',
             url: `/list/${item.id}`,
