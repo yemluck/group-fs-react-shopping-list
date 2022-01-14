@@ -1,0 +1,33 @@
+.listItem{
+    margin-top: 2rem;
+    border: 2px gray ridge;
+    border-radius: 10px;
+    width: fit-content;
+}
+
+.itemName{
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.itemUnit{
+    padding: 0;
+    margin: 5px;
+    text-align: center;
+    font-size: 1.25rem;
+}
+.buyRemove{
+    margin-bottom: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    font-size: 1.25rem;
+    text-align: center;
+}
+
+.purchased{
+    text-align: center;
+    margin-bottom: 10px;
+}

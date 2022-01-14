@@ -1,6 +1,8 @@
 //importing useState from react
 import {useState} from 'react';
 
+import './GroceryForm.css';
+
 function GroceryForm({addNewGrocery}){
 
     const [ newGrocery, setNewGrocery] = useState('');
@@ -25,28 +27,30 @@ function GroceryForm({addNewGrocery}){
     return(
         <form onSubmit = {handleSubmit}>
 
-            <label>Item:</label>
+            <label className='item'>Item:</label>
             <input 
+            className='inputItem'
             onChange = { (event) => setNewGrocery(event.target.value)}
             value = {newGrocery}
             placeholder = 'Item'
             />
             <br></br>
-            <label>Quantity:</label>
+            <label className='quantity'>Quantity:</label>
             <input
+            className='inputQuantity'
             onChange = { (event) => setNewQuantity(event.target.value)}
             value = {newQuantity}
             placeholder = 'Quantity'
             />
-            <br></br>
-            <label>Units:</label>
+            <label className='unit'>Units:</label>
             <input 
+            className='inputUnit'
             onChange = { (event) => setNewUnit(event.target.value)}
             value = {newUnit}
             placeholder = 'Units'
             />
-
-            <button type = "submit">Save</button>
+            <br></br>
+            <button className='submit' type = "submit">Save</button>
         </form>
     )
 }

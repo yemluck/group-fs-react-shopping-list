@@ -1,4 +1,6 @@
 import axios from 'axios';
+import './GroceryListItem.css'
+
 function GroceryListItem({item, buy, removeItem}) {
     
     // Buy function -- PUT and mark as purchased
@@ -16,13 +18,15 @@ function GroceryListItem({item, buy, removeItem}) {
 
 
     return (
-        <div key={item.id}>
-            <p>{item.name}</p>
-            <p>{item.quantity} {item.unit}</p>
-            { item.purchased ? 'Purchased' :
+        <div className="listItem"key={item.id}>
+            <p className = "itemName">{item.name}</p>
+            <p className = "itemUnit">{item.quantity} {item.unit}</p>
+            { item.purchased ? <p className = "purchased">Purchased</p> :
                 <>
+                <div className = "buyRemove">
                     <button onClick={buyItem}>Buy</button>
                     <button onClick={onRemoveItem}>Remove</button>
+                </div>
                 </>
             }       
         </div>
