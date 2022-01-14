@@ -91,7 +91,6 @@ router.delete('/', (req, res) => {
     pool.query(queryText)
         .then((res) => {
             console.log('DELETE success');
-            res.sendStatus(201);
         })
         .catch((err) => {
             console.error('DELETE endpoint failed', err);
