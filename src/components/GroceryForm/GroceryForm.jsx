@@ -30,6 +30,8 @@ function GroceryForm({addNewGrocery}){
             onChange = { (event) => setNewGrocery(event.target.value)}
             value = {newGrocery}
             placeholder = 'Item'
+            type = "text"
+            required
             />
             <br></br>
             <label>Quantity:</label>
@@ -37,6 +39,8 @@ function GroceryForm({addNewGrocery}){
             onChange = { (event) => setNewQuantity(event.target.value)}
             value = {newQuantity}
             placeholder = 'Quantity'
+            type = "number"
+            required
             />
             <br></br>
             <label>Units:</label>
@@ -44,6 +48,8 @@ function GroceryForm({addNewGrocery}){
             onChange = { (event) => setNewUnit(event.target.value)}
             value = {newUnit}
             placeholder = 'Units'
+            type = "text"
+            required
             />
 
             <button type = "submit">Save</button>
